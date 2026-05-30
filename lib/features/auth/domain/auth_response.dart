@@ -1,0 +1,17 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'customer.dart';
+
+part 'auth_response.freezed.dart';
+part 'auth_response.g.dart';
+
+@freezed
+abstract class AuthResponse with _$AuthResponse {
+  const factory AuthResponse({
+    required String token,
+    @JsonKey(name: 'token_type') @Default('Bearer') String tokenType,
+    required Customer customer,
+  }) = _AuthResponse;
+
+  factory AuthResponse.fromJson(Map<String, dynamic> json) => _$AuthResponseFromJson(json);
+}
