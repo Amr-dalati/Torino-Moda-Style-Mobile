@@ -83,3 +83,5 @@ CI uses Flutter action built-in caching (`cache: true`) for the SDK and pub pack
 - [ENVIRONMENTS.md](./ENVIRONMENTS.md) — `APP_ENV` and `API_BASE_URL`
 - [RELEASE_BUILDS.md](./RELEASE_BUILDS.md) — manual staging/production builds
 - [OBSERVABILITY.md](./OBSERVABILITY.md) — Sentry setup (optional; not required for PR CI)
+- [QA_CHECKLIST.md](./QA_CHECKLIST.md) — pre-release verification
+- [README.md](./README.md) — documentation index

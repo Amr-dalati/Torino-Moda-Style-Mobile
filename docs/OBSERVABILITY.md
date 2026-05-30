@@ -98,3 +98,5 @@ Deferred. Release builds will show obfuscated Dart stacks until `sentry_dart_plu
 - [ENVIRONMENTS.md](./ENVIRONMENTS.md)
 - [RELEASE_BUILDS.md](./RELEASE_BUILDS.md)
 - [CI.md](./CI.md)
+- [INTERNAL_TESTING.md](./INTERNAL_TESTING.md) — verify Sentry on staging device
+- [README.md](./README.md)

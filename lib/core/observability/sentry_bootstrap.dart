@@ -30,7 +30,6 @@ Future<void> runWithObservability({
       options.release = AppRelease.label;
       options.sendDefaultPii = false;
       options.attachScreenshot = false;
-      options.attachViewHierarchy = false;
       options.beforeSend = SentrySanitizer.beforeSend;
       options.beforeBreadcrumb = SentrySanitizer.beforeBreadcrumb;
     },

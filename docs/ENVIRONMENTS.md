@@ -126,3 +126,6 @@ Scripts in `scripts/` use **placeholder** `example.com` domains only.
 
 - [RELEASE_BUILDS.md](./RELEASE_BUILDS.md) — staging APK and production AAB commands
 - [OBSERVABILITY.md](./OBSERVABILITY.md) — Sentry DSN and privacy rules
+- [QA_CHECKLIST.md](./QA_CHECKLIST.md) — feature verification before release
+- [RELEASE_READINESS.md](./RELEASE_READINESS.md) — promotion gates
+- [README.md](./README.md) — documentation index

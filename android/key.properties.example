@@ -1,0 +1,12 @@
+# Copy to android/key.properties (never commit key.properties).
+# Paths are relative to the android/ directory.
+#
+#   cp android/key.properties.example android/key.properties
+#   # Edit android/key.properties with your real values.
+#
+# Generate a keystore first — see docs/ANDROID_SIGNING.md
+
+storePassword=YOUR_STORE_PASSWORD
+keyPassword=YOUR_KEY_PASSWORD
+keyAlias=upload
+storeFile=upload-keystore.jks
