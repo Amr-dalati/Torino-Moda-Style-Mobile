@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -5,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../../../app/router/route_names.dart';
 import '../../../core/localization/l10n.dart';
 import '../../../core/network/error/app_error.dart';
+import '../../../core/observability/crash_reporting.dart';
 import '../../../shared/utils/app_error_ui.dart';
 import '../../../shared/widgets/loading_view.dart';
 import '../../../shared/widgets/primary_button.dart';
@@ -142,6 +145,9 @@ class _CheckoutReviewPageState extends ConsumerState<CheckoutReviewPage> {
       await ref.read(checkoutSubmitControllerProvider.notifier).submit(addressId);
     } on AppError catch (e) {
       if (mounted) showAppErrorSnackBar(context, e);
+      unawaited(
+        CrashReporting.captureAppError(e, feature: 'checkout'),
+      );
     }
   }
 }

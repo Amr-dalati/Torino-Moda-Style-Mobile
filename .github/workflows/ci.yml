@@ -1,4 +1,4 @@
-# Code quality CI for torino-moda-style-f.
+# Code quality CI for torino-moda-style-Mobile.
 #
 # Assumption: this repository root IS the Flutter project (pubspec.yaml at root).
 # If the app moves into a monorepo subdirectory, set:

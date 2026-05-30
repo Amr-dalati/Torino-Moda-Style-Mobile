@@ -137,3 +137,7 @@ Release signing is **not** configured in Phase 9.1. Before Play Store upload you
 Every push/PR to `main` runs analyze and tests via GitHub Actions. See [CI.md](./CI.md).
 
 Release builds are **not** part of CI yet (no secrets, no signing, no store upload).
+
+## Crash reporting
+
+Staging/production builds can enable Sentry with `--dart-define=SENTRY_DSN=...`. See [OBSERVABILITY.md](./OBSERVABILITY.md).

@@ -8,6 +8,7 @@ Torino Moda Style Flutter app uses **compile-time** configuration via `--dart-de
 |--------|--------|---------|---------|
 | `APP_ENV` | `dev`, `staging`, `prod` | `dev` | Deployment environment label and validation rules |
 | `API_BASE_URL` | Full API root URL | `http://127.0.0.1:8000/api` | Backend base URL **including `/api`** |
+| `SENTRY_DSN` | Sentry project DSN | _(empty)_ | Crash reporting; see [OBSERVABILITY.md](./OBSERVABILITY.md) |
 
 ### Examples
 
@@ -124,3 +125,4 @@ Scripts in `scripts/` use **placeholder** `example.com` domains only.
 ## Related docs
 
 - [RELEASE_BUILDS.md](./RELEASE_BUILDS.md) — staging APK and production AAB commands
+- [OBSERVABILITY.md](./OBSERVABILITY.md) — Sentry DSN and privacy rules

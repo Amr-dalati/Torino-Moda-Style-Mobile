@@ -19,6 +19,7 @@ echo "Building staging release APK (APP_ENV=staging, API_BASE_URL=$API_BASE_URL)
 
 flutter build apk --release \
   --dart-define=APP_ENV=staging \
-  --dart-define="API_BASE_URL=$API_BASE_URL"
+  --dart-define="API_BASE_URL=$API_BASE_URL" \
+  --dart-define="SENTRY_DSN=${SENTRY_DSN:-}"
 
 echo "Output: build/app/outputs/flutter-apk/app-release.apk"

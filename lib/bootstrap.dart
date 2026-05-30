@@ -3,17 +3,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app/app.dart';
 import 'core/config/env.dart';
+import 'core/observability/sentry_bootstrap.dart';
 
-void bootstrap() {
+Future<void> bootstrap() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Fail fast on invalid APP_ENV / API_BASE_URL before building the widget tree.
-  Env.load();
+  final env = Env.load();
 
-  runApp(
-    const ProviderScope(
+  await runWithObservability(
+    env: env,
+    app: const ProviderScope(
       child: App(),
     ),
   );
 }
-

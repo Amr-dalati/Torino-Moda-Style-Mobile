@@ -69,9 +69,8 @@ This prevents merging when analyze or tests fail.
 |----------|-------|
 | Release APK/AAB builds | 9.5 |
 | Signing / keystore secrets | 9.5 |
-| Sentry symbol upload | 9.3 |
-| Firebase configuration | Later |
-| `API_BASE_URL` staging/prod secrets | Release workflows only |
+| Sentry symbol upload | 9.4+ |
+| `SENTRY_DSN` secrets | Release workflows only (app runs without DSN in PR CI) |
 
 Release builds need `--dart-define` values and signing material that must not run on every PR.
 
@@ -83,3 +82,4 @@ CI uses Flutter action built-in caching (`cache: true`) for the SDK and pub pack
 
 - [ENVIRONMENTS.md](./ENVIRONMENTS.md) — `APP_ENV` and `API_BASE_URL`
 - [RELEASE_BUILDS.md](./RELEASE_BUILDS.md) — manual staging/production builds
+- [OBSERVABILITY.md](./OBSERVABILITY.md) — Sentry setup (optional; not required for PR CI)

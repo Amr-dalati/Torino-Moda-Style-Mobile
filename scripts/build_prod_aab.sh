@@ -21,6 +21,7 @@ echo "Building production release AAB (APP_ENV=prod, API_BASE_URL=$API_BASE_URL)
 
 flutter build appbundle --release \
   --dart-define=APP_ENV=prod \
-  --dart-define="API_BASE_URL=$API_BASE_URL"
+  --dart-define="API_BASE_URL=$API_BASE_URL" \
+  --dart-define="SENTRY_DSN=${SENTRY_DSN:-}"
 
 echo "Output: build/app/outputs/bundle/release/app-release.aab"

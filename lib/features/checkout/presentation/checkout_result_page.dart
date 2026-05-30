@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -7,6 +9,7 @@ import '../../../app/router/route_names.dart';
 import '../../../core/localization/l10n.dart';
 import '../../../core/localization/status_labels.dart';
 import '../../../core/network/error/app_error.dart';
+import '../../../core/observability/crash_reporting.dart';
 import '../../../shared/utils/app_error_ui.dart';
 import '../../../shared/widgets/primary_button.dart';
 import '../../cart/application/cart_controller.dart';
@@ -37,6 +40,7 @@ class _CheckoutResultPageState extends ConsumerState<CheckoutResultPage> {
 
   Future<void> _openPaymentUrl(String url) async {
     final l10n = context.l10n;
+    final orderId = widget.result.order.id.toString();
     setState(() => _openingUrl = true);
     try {
       final uri = Uri.tryParse(url);
@@ -47,6 +51,13 @@ class _CheckoutResultPageState extends ConsumerState<CheckoutResultPage> {
             UnknownError(message: l10n.invalidPaymentUrl),
           );
         }
+        unawaited(
+          CrashReporting.captureEvent(
+            message: 'payment_url_invalid',
+            feature: 'checkout',
+            tags: {'order_id': orderId},
+          ),
+        );
         return;
       }
       final launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
@@ -54,6 +65,13 @@ class _CheckoutResultPageState extends ConsumerState<CheckoutResultPage> {
         showAppErrorSnackBar(
           context,
           UnknownError(message: l10n.couldNotOpenPaymentUrl),
+        );
+        unawaited(
+          CrashReporting.captureEvent(
+            message: 'payment_url_launch_failed',
+            feature: 'checkout',
+            tags: {'order_id': orderId},
+          ),
         );
       }
     } finally {
